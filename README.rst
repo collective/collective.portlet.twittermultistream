@@ -1,8 +1,7 @@
 Introduction
 ============
 
-This addon has been inspeared by the `Mutli Twitter Stream`_
-
+This addon has been inspeared by the `Mutli Twitter Stream`_ wordpress addon.
 It displays only the most recent tweet from multiple twitter accounts.
 
 Credits and contributions
