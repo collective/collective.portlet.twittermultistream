@@ -64,11 +64,17 @@ class Renderer(base.Renderer):
         get_url = "https://twitter.com/users/%s.json"
         for account in accounts:
             account_url = get_url % account
-            account_info = json.loads(urllib.urlopen(account_url).read())
-            if 'status' in account_info:
-                self.update_time(account_info)
-            #we keep all information
-            tweets.append(account_info)
+            account_info = None
+            try:
+                account_info = json.loads(urllib.urlopen(account_url).read())
+                if "errors" in account_info:
+                    continue
+                if 'status' in account_info:
+                    self.update_time(account_info)
+                #we keep all information
+                tweets.append(account_info)
+            except IOError:
+                continue
             # the tweet text is in account_info['status']['text']
         return tweets
 
