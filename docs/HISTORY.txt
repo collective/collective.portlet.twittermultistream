@@ -4,8 +4,7 @@ Changelog
 1.2 (unreleased)
 ----------------
 
-- Nothing changed yet.
-
+- Make style be fit with oembed style of twitter
 
 1.1 (2012-12-04)
 ----------------
