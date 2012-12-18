@@ -29,6 +29,7 @@ setup(name='collective.portlet.twittermultistream',
       install_requires=[
           'setuptools',
           'collective.js.timeago',
+          'collective.js.twittertext',
           # -*- Extra requirements: -*-
       ],
       extras_require={'test': 'plone.app.testing'},

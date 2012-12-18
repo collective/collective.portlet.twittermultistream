@@ -51,11 +51,27 @@ class Assignment(base.Assignment):
 def _get_tweets_cachekey(method, self):
     return ('-'.join(self.data.accounts), time.time() // (60 * 60))
 
+import time
+def timeit(f):
+    def wrap(*args):
+        time1 = time.time()
+        ret = f(*args)
+        time2 = time.time()
+        print '%s function took %0.3f ms' % (f.func_name, (time2-time1)*1000.0)
+        return ret
+    return wrap
 
 class Renderer(base.Renderer):
     """Portlet renderer"""
 
-    render = ViewPageTemplateFile('twittermultistream.pt')
+    template = ViewPageTemplateFile('twittermultistream.pt')
+
+    @timeit
+    def render(self):
+        return self.template()
+
+    def get_authors(self):
+        return self.data.accounts
 
     @ram.cache(_get_tweets_cachekey)
     def get_tweets(self):
@@ -85,6 +101,8 @@ class Renderer(base.Renderer):
         tweet['status']['created_at_datetime'] = created_at_dt.strftime('%Y-%m-%dT%H:%M:%SZ')
         return tweet
 
+    def is_serverside_rendering(self):
+        return False
 
 class AddForm(base.AddForm):
     """Portlet add form."""
