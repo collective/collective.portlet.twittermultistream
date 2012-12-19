@@ -33,8 +33,4 @@
       file="twittermultistream.css"
       name="collective.portlet.twittermultistream.css"/>
 
-    <browser:resource
-      file="jquery.twittervcard.js"
-      name="jquery.twittervcard.js"/>
-
 </configure>
