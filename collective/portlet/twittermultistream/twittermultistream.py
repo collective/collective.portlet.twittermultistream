@@ -24,10 +24,6 @@ class ITwitterMultiStream(IPortletDataProvider):
     header = schema.TextLine(title=_(u"Header"))
     accounts = schema.List(title=_(u"Accounts"),
                    value_type=schema.ASCIILine(title=_(u"Twitter account")))
-    timeout = schema.Int(title=_(u'Feed reload timeout'),
-                        description=_(u'Time in minutes after which the feed should be reloaded.'),
-                        required=True,
-                        default=100)
 
 
 class Assignment(base.Assignment):
@@ -35,10 +31,9 @@ class Assignment(base.Assignment):
 
     interface.implements(ITwitterMultiStream)
 
-    def __init__(self, header=None, accounts=None, timeout=100):
+    def __init__(self, header=None, accounts=None):
         self.header = header
         self.accounts = accounts
-        self.timeout = timeout
 
     @property
     def title(self):

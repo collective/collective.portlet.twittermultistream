@@ -28,8 +28,7 @@ setup(name='collective.portlet.twittermultistream',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'collective.js.timeago',
-          'collective.js.twittertext',
+          'collective.oembed',
           # -*- Extra requirements: -*-
       ],
       extras_require={'test': 'plone.app.testing'},
