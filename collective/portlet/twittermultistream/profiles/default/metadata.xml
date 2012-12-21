@@ -2,6 +2,6 @@
 <metadata>
   <version>1005</version>
   <dependencies>
-    <dependency>profile-collective.js.timeago:default</dependency>
+    <dependency>profile-collective.oembed:default</dependency>
   </dependencies>
 </metadata>
